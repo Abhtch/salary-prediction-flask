@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Salary Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="card">
+        <h1>Employee Salary Prediction</h1>
+        <p class="subtitle">Enter years of experience to estimate salary using the trained machine-learning model.</p>
+
+        <form id="predictionForm">
+            <label for="experience">Years of Experience</label>
+            <input id="experience" name="experience" type="number"
+                   min="0" max="50" step="any" placeholder="e.g. 3.5" required>
+            <button type="submit" id="submitButton">Predict Salary</button>
+        </form>
+
+        <section id="result" aria-live="polite" hidden>
+            <div id="status"></div>
+            <div id="salary"></div>
+            <strong>JSON Response</strong>
+            <pre id="jsonOutput"></pre>
+        </section>
+        <p class="hint">API endpoint: <code>POST /predict</code></p>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
